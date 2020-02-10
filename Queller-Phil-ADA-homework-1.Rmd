@@ -14,6 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # challenge 1
 
 ```{r}
+library(stringr)
 
 quote <- gsub("[[:punct:]]","","There is grandeur in this view of life, with its several powers, having been originally breathed by the Creator into a few forms or into one; and that, whilst this planet has gone circling on according to the fixed law of gravity, from so simple a beginning endless forms most beautiful and most wonderful have been, and are being evolved")
 
