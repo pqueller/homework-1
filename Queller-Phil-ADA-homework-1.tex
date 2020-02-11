@@ -1,0 +1,526 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\PassOptionsToPackage{hyphens}{url} % url is loaded by hyperref
+\usepackage[unicode=true]{hyperref}
+\hypersetup{
+            pdftitle={Queller-Phil-ADA-homework-1},
+            pdfauthor={Phil Queller},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+
+\title{Queller-Phil-ADA-homework-1}
+\author{Phil Queller}
+\date{2/4/2020}
+
+\begin{document}
+\maketitle
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(stringr)}
+\end{Highlighting}
+\end{Shaded}
+
+\section{CHALLENGE 1}\label{challenge-1}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{quote <-}\StringTok{ }\KeywordTok{gsub}\NormalTok{(}\StringTok{"[[:punct:]]"}\NormalTok{,}\StringTok{""}\NormalTok{,}\StringTok{"There is grandeur in this view of life, with its several powers, having been originally breathed by the Creator into a few forms or into one; and that, whilst this planet has gone circling on according to the fixed law of gravity, from so simple a beginning endless forms most beautiful and most wonderful have been, and are being evolved"}\NormalTok{)}
+
+\NormalTok{quote}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "There is grandeur in this view of life with its several powers having been originally breathed by the Creator into a few forms or into one and that whilst this planet has gone circling on according to the fixed law of gravity from so simple a beginning endless forms most beautiful and most wonderful have been and are being evolved"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{split_quote <-}\StringTok{ }\KeywordTok{str_split}\NormalTok{(quote, }\StringTok{" "}\NormalTok{)[[}\DecValTok{1}\NormalTok{]]}
+\NormalTok{split_quote}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "There"      "is"         "grandeur"   "in"         "this"      
+##  [6] "view"       "of"         "life"       "with"       "its"       
+## [11] "several"    "powers"     "having"     "been"       "originally"
+## [16] "breathed"   "by"         "the"        "Creator"    "into"      
+## [21] "a"          "few"        "forms"      "or"         "into"      
+## [26] "one"        "and"        "that"       "whilst"     "this"      
+## [31] "planet"     "has"        "gone"       "circling"   "on"        
+## [36] "according"  "to"         "the"        "fixed"      "law"       
+## [41] "of"         "gravity"    "from"       "so"         "simple"    
+## [46] "a"          "beginning"  "endless"    "forms"      "most"      
+## [51] "beautiful"  "and"        "most"       "wonderful"  "have"      
+## [56] "been"       "and"        "are"        "being"      "evolved"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{every_fourth <-}\StringTok{ }\NormalTok{split_quote[}\KeywordTok{seq}\NormalTok{(}\DataTypeTok{from =} \DecValTok{4}\NormalTok{, }\DataTypeTok{to =} \DecValTok{60}\NormalTok{, }\DataTypeTok{by =} \DecValTok{4}\NormalTok{)]}
+\NormalTok{every_fourth}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "in"        "life"      "powers"    "breathed"  "into"      "or"       
+##  [7] "that"      "has"       "according" "law"       "so"        "endless"  
+## [13] "and"       "been"      "evolved"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{split_quote <-}\StringTok{ }\KeywordTok{sort}\NormalTok{(every_fourth, }\DataTypeTok{decreasing =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{split_quote}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "that"      "so"        "powers"    "or"        "life"      "law"      
+##  [7] "into"      "in"        "has"       "evolved"   "endless"   "breathed" 
+## [13] "been"      "and"       "according"
+\end{verbatim}
+
+\section{CHALLENGE 2:}\label{challenge-2}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{m1 <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}
+  \DataTypeTok{data =} \KeywordTok{seq}\NormalTok{(}\DataTypeTok{from =} \DecValTok{1}\NormalTok{, }\DataTypeTok{to =} \DecValTok{159}\NormalTok{, }\DataTypeTok{by =} \DecValTok{2}\NormalTok{),}
+  \DataTypeTok{nrow =} \DecValTok{8}\NormalTok{,}
+  \DataTypeTok{ncol =} \DecValTok{10}
+\NormalTok{)}
+\NormalTok{m1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+## [1,]    1   17   33   49   65   81   97  113  129   145
+## [2,]    3   19   35   51   67   83   99  115  131   147
+## [3,]    5   21   37   53   69   85  101  117  133   149
+## [4,]    7   23   39   55   71   87  103  119  135   151
+## [5,]    9   25   41   57   73   89  105  121  137   153
+## [6,]   11   27   43   59   75   91  107  123  139   155
+## [7,]   13   29   45   61   77   93  109  125  141   157
+## [8,]   15   31   47   63   79   95  111  127  143   159
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{m1[}\DecValTok{5}\NormalTok{,}\DecValTok{2}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 25
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{m1[}\DecValTok{5}\OperatorTok{:}\DecValTok{7}\NormalTok{, ]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+## [1,]    9   25   41   57   73   89  105  121  137   153
+## [2,]   11   27   43   59   75   91  107  123  139   155
+## [3,]   13   29   45   61   77   93  109  125  141   157
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{m3 <-}\StringTok{ }\NormalTok{m1[}\DecValTok{3}\OperatorTok{:}\DecValTok{6}\NormalTok{,}\DecValTok{4}\OperatorTok{:}\DecValTok{9}\NormalTok{]}
+\NormalTok{m3}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2] [,3] [,4] [,5] [,6]
+## [1,]   53   69   85  101  117  133
+## [2,]   55   71   87  103  119  135
+## [3,]   57   73   89  105  121  137
+## [4,]   59   75   91  107  123  139
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{class}\NormalTok{(m3)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "matrix"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{mode}\NormalTok{(m3)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "numeric"
+\end{verbatim}
+
+CHALLENGE 3:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a <-}\StringTok{ }\KeywordTok{array}\NormalTok{(}\DataTypeTok{data =} \DecValTok{400}\OperatorTok{:}\DecValTok{1}\NormalTok{, }\DataTypeTok{dim =} \KeywordTok{c}\NormalTok{(}\DecValTok{5}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{))}
+\NormalTok{a}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## , , 1, 1
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  400  395  390  385  380
+## [2,]  399  394  389  384  379
+## [3,]  398  393  388  383  378
+## [4,]  397  392  387  382  377
+## [5,]  396  391  386  381  376
+## 
+## , , 2, 1
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  375  370  365  360  355
+## [2,]  374  369  364  359  354
+## [3,]  373  368  363  358  353
+## [4,]  372  367  362  357  352
+## [5,]  371  366  361  356  351
+## 
+## , , 3, 1
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  350  345  340  335  330
+## [2,]  349  344  339  334  329
+## [3,]  348  343  338  333  328
+## [4,]  347  342  337  332  327
+## [5,]  346  341  336  331  326
+## 
+## , , 4, 1
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  325  320  315  310  305
+## [2,]  324  319  314  309  304
+## [3,]  323  318  313  308  303
+## [4,]  322  317  312  307  302
+## [5,]  321  316  311  306  301
+## 
+## , , 1, 2
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  300  295  290  285  280
+## [2,]  299  294  289  284  279
+## [3,]  298  293  288  283  278
+## [4,]  297  292  287  282  277
+## [5,]  296  291  286  281  276
+## 
+## , , 2, 2
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  275  270  265  260  255
+## [2,]  274  269  264  259  254
+## [3,]  273  268  263  258  253
+## [4,]  272  267  262  257  252
+## [5,]  271  266  261  256  251
+## 
+## , , 3, 2
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  250  245  240  235  230
+## [2,]  249  244  239  234  229
+## [3,]  248  243  238  233  228
+## [4,]  247  242  237  232  227
+## [5,]  246  241  236  231  226
+## 
+## , , 4, 2
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  225  220  215  210  205
+## [2,]  224  219  214  209  204
+## [3,]  223  218  213  208  203
+## [4,]  222  217  212  207  202
+## [5,]  221  216  211  206  201
+## 
+## , , 1, 3
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  200  195  190  185  180
+## [2,]  199  194  189  184  179
+## [3,]  198  193  188  183  178
+## [4,]  197  192  187  182  177
+## [5,]  196  191  186  181  176
+## 
+## , , 2, 3
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  175  170  165  160  155
+## [2,]  174  169  164  159  154
+## [3,]  173  168  163  158  153
+## [4,]  172  167  162  157  152
+## [5,]  171  166  161  156  151
+## 
+## , , 3, 3
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  150  145  140  135  130
+## [2,]  149  144  139  134  129
+## [3,]  148  143  138  133  128
+## [4,]  147  142  137  132  127
+## [5,]  146  141  136  131  126
+## 
+## , , 4, 3
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  125  120  115  110  105
+## [2,]  124  119  114  109  104
+## [3,]  123  118  113  108  103
+## [4,]  122  117  112  107  102
+## [5,]  121  116  111  106  101
+## 
+## , , 1, 4
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  100   95   90   85   80
+## [2,]   99   94   89   84   79
+## [3,]   98   93   88   83   78
+## [4,]   97   92   87   82   77
+## [5,]   96   91   86   81   76
+## 
+## , , 2, 4
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]   75   70   65   60   55
+## [2,]   74   69   64   59   54
+## [3,]   73   68   63   58   53
+## [4,]   72   67   62   57   52
+## [5,]   71   66   61   56   51
+## 
+## , , 3, 4
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]   50   45   40   35   30
+## [2,]   49   44   39   34   29
+## [3,]   48   43   38   33   28
+## [4,]   47   42   37   32   27
+## [5,]   46   41   36   31   26
+## 
+## , , 4, 4
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]   25   20   15   10    5
+## [2,]   24   19   14    9    4
+## [3,]   23   18   13    8    3
+## [4,]   22   17   12    7    2
+## [5,]   21   16   11    6    1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a[}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 300
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a[}\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{2}\NormalTok{, ]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 364 264 164  64
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a[}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{, }\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{3}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  150  145  140  135  130
+## [2,]  149  144  139  134  129
+## [3,]  148  143  138  133  128
+## [4,]  147  142  137  132  127
+## [5,]  146  141  136  131  126
+\end{verbatim}
+
+CHALLENGE 4:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#superfamily}
+\NormalTok{Lorisoidea <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Lorisidae"}\NormalTok{,}\StringTok{"Galagidae"}\NormalTok{)}
+\NormalTok{Lemuroidea <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Cheirogaleidae"}\NormalTok{, }\StringTok{"Lepilemuridae"}\NormalTok{, }\StringTok{"Indriidae"}\NormalTok{, }\StringTok{"Lemuridae"}\NormalTok{, }\StringTok{"Daubentoniidae"}\NormalTok{)}
+\NormalTok{Tarsioidea <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Tarsiidae"}\NormalTok{)}
+\NormalTok{Ceboidea <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Cebidae"}\NormalTok{, }\StringTok{"Atelidae"}\NormalTok{, }\StringTok{"Pitheciidae"}\NormalTok{)}
+\NormalTok{Hominoidea <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Hylobatidae"}\NormalTok{, }\StringTok{"Hominidae"}\NormalTok{)}
+\NormalTok{Cercopithecoidea <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Cercopithecidae"}\NormalTok{)}
+
+\CommentTok{#parvorder}
+\NormalTok{Platyrrhinni <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\StringTok{"Superfamily: Ceboidea"}\NormalTok{ =}\StringTok{ }\NormalTok{Ceboidea)}
+\NormalTok{Catarrhini <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\StringTok{"Superfamily: Hominoidea"}\NormalTok{ =}\StringTok{ }\NormalTok{Hominoidea, }\StringTok{"Superfamily: Cercopithecoidea"}\NormalTok{ =}\StringTok{ }\NormalTok{Cercopithecoidea)}
+
+
+\CommentTok{#infraorder}
+\NormalTok{Lorisiformes <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\StringTok{"Superfamily: Lorisoidea"}\NormalTok{ =}\StringTok{ }\NormalTok{Lorisoidea)}
+\NormalTok{Lemuriformes <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\StringTok{"Superfamily: Lemuroidea"}\NormalTok{ =}\StringTok{ }\NormalTok{Lemuroidea)}
+\NormalTok{Tarsiiformes <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\StringTok{"Superfamily: Tarsioidea"}\NormalTok{ =}\StringTok{ }\NormalTok{Tarsioidea)}
+\NormalTok{Simiiformes <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\StringTok{"Parvorder: Platyrrhinni"}\NormalTok{ =}\StringTok{ }\NormalTok{Platyrrhinni, }\StringTok{"Parvorder: Catarrhini"}\NormalTok{ =}\StringTok{ }\NormalTok{Catarrhini)}
+
+\CommentTok{#suborder}
+\NormalTok{Strepsirhini <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\StringTok{"Infraorder: Lorisiformes"}\NormalTok{ =}\StringTok{ }\NormalTok{Lorisiformes, }\StringTok{"Infraorder: Lemuriformes"}\NormalTok{ =}\StringTok{ }\NormalTok{Lemuriformes)}
+\NormalTok{Haplorhini <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\StringTok{"Infraorder: Tarsiiformes"}\NormalTok{ =}\StringTok{ }\NormalTok{Tarsiiformes, }\StringTok{"Infraorder: Simiiformes"}\NormalTok{ =}\StringTok{ }\NormalTok{Simiiformes)}
+
+\CommentTok{#Order}
+\NormalTok{Primates <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\StringTok{"Suborder: Strepsirhini"}\NormalTok{ =}\StringTok{ }\NormalTok{Strepsirhini, }\StringTok{"Suborder: Haplorhini"}\NormalTok{ =}\StringTok{ }\NormalTok{Haplorhini)}
+
+\NormalTok{Primates_taxonomy <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\StringTok{"Order: Primates"}\NormalTok{ =}\StringTok{ }\NormalTok{Primates)}
+\NormalTok{Primates_taxonomy}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $`Order: Primates`
+## $`Order: Primates`$`Suborder: Strepsirhini`
+## $`Order: Primates`$`Suborder: Strepsirhini`$`Infraorder: Lorisiformes`
+## $`Order: Primates`$`Suborder: Strepsirhini`$`Infraorder: Lorisiformes`$`Superfamily: Lorisoidea`
+## [1] "Lorisidae" "Galagidae"
+## 
+## 
+## $`Order: Primates`$`Suborder: Strepsirhini`$`Infraorder: Lemuriformes`
+## $`Order: Primates`$`Suborder: Strepsirhini`$`Infraorder: Lemuriformes`$`Superfamily: Lemuroidea`
+## [1] "Cheirogaleidae" "Lepilemuridae"  "Indriidae"      "Lemuridae"     
+## [5] "Daubentoniidae"
+## 
+## 
+## 
+## $`Order: Primates`$`Suborder: Haplorhini`
+## $`Order: Primates`$`Suborder: Haplorhini`$`Infraorder: Tarsiiformes`
+## $`Order: Primates`$`Suborder: Haplorhini`$`Infraorder: Tarsiiformes`$`Superfamily: Tarsioidea`
+## [1] "Tarsiidae"
+## 
+## 
+## $`Order: Primates`$`Suborder: Haplorhini`$`Infraorder: Simiiformes`
+## $`Order: Primates`$`Suborder: Haplorhini`$`Infraorder: Simiiformes`$`Parvorder: Platyrrhinni`
+## $`Order: Primates`$`Suborder: Haplorhini`$`Infraorder: Simiiformes`$`Parvorder: Platyrrhinni`$`Superfamily: Ceboidea`
+## [1] "Cebidae"     "Atelidae"    "Pitheciidae"
+## 
+## 
+## $`Order: Primates`$`Suborder: Haplorhini`$`Infraorder: Simiiformes`$`Parvorder: Catarrhini`
+## $`Order: Primates`$`Suborder: Haplorhini`$`Infraorder: Simiiformes`$`Parvorder: Catarrhini`$`Superfamily: Hominoidea`
+## [1] "Hylobatidae" "Hominidae"  
+## 
+## $`Order: Primates`$`Suborder: Haplorhini`$`Infraorder: Simiiformes`$`Parvorder: Catarrhini`$`Superfamily: Cercopithecoidea`
+## [1] "Cercopithecidae"
+\end{verbatim}
+
+\end{document}

@@ -2,7 +2,9 @@
 title: "Queller-Phil-ADA-homework-1"
 author: "Phil Queller"
 date: "2/4/2020"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
