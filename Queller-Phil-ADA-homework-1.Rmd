@@ -131,7 +131,7 @@ Catarrhini <- list("Superfamily Hominoidea" = Hominoidea, "Superfamily Cercopith
 Lorisiformes <- list("Superfamily Lorisoidea" = Lorisoidea)
 Lemuriformes <- list("Superfamily Lemuroidea" = Lemuroidea)
 Tarsiiformes <- list("Superfamily Tarsioidea" = Tarsioidea)
-Simiiformes <- list("Superfamily Simiiformes" = Ceboidea)
+Simiiformes <- list("Parvorder Platyrrhinni" = Platyrrhinni, "Parvorder Catarrhini" = Catarrhini)
 
 #suborder
 Strepsirhini <- list("Infraorder Lorisiformes" = Lorisiformes, "Infraorder Lemuriformes" = Lemuriformes)
