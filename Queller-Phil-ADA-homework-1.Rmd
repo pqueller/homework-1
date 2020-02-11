@@ -33,7 +33,7 @@ every_fourth <- split_quote[seq(from = 4, to = 60, by = 4)]
 every_fourth
 
 split_quote <- sort(every_fourth, decreasing = TRUE)
-
+split_quote
 
 
 ```
