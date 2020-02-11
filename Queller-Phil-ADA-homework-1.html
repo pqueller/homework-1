@@ -184,14 +184,10 @@ summary {
 </div>
 
 
-<div id="homework-1" class="section level2">
-<h2>homework 1</h2>
-</div>
+<pre class="r"><code>library(stringr)</code></pre>
 <div id="challenge-1" class="section level1">
-<h1>challenge 1</h1>
-<pre class="r"><code>library(stringr)
-
-quote &lt;- gsub(&quot;[[:punct:]]&quot;,&quot;&quot;,&quot;There is grandeur in this view of life, with its several powers, having been originally breathed by the Creator into a few forms or into one; and that, whilst this planet has gone circling on according to the fixed law of gravity, from so simple a beginning endless forms most beautiful and most wonderful have been, and are being evolved&quot;)
+<h1>CHALLENGE 1</h1>
+<pre class="r"><code>quote &lt;- gsub(&quot;[[:punct:]]&quot;,&quot;&quot;,&quot;There is grandeur in this view of life, with its several powers, having been originally breathed by the Creator into a few forms or into one; and that, whilst this planet has gone circling on according to the fixed law of gravity, from so simple a beginning endless forms most beautiful and most wonderful have been, and are being evolved&quot;)
 
 quote</code></pre>
 <pre><code>## [1] &quot;There is grandeur in this view of life with its several powers having been originally breathed by the Creator into a few forms or into one and that whilst this planet has gone circling on according to the fixed law of gravity from so simple a beginning endless forms most beautiful and most wonderful have been and are being evolved&quot;</code></pre>
@@ -214,47 +210,261 @@ every_fourth</code></pre>
 <pre><code>##  [1] &quot;in&quot;        &quot;life&quot;      &quot;powers&quot;    &quot;breathed&quot;  &quot;into&quot;      &quot;or&quot;       
 ##  [7] &quot;that&quot;      &quot;has&quot;       &quot;according&quot; &quot;law&quot;       &quot;so&quot;        &quot;endless&quot;  
 ## [13] &quot;and&quot;       &quot;been&quot;      &quot;evolved&quot;</code></pre>
-<pre class="r"><code>every_fourth &lt;- sort(every_fourth, decreasing = TRUE)
-every_fourth</code></pre>
-<pre><code>##  [1] &quot;that&quot;      &quot;so&quot;        &quot;powers&quot;    &quot;or&quot;        &quot;life&quot;      &quot;law&quot;      
-##  [7] &quot;into&quot;      &quot;in&quot;        &quot;has&quot;       &quot;evolved&quot;   &quot;endless&quot;   &quot;breathed&quot; 
-## [13] &quot;been&quot;      &quot;and&quot;       &quot;according&quot;</code></pre>
-<p>Order: Primates</p>
-<pre><code>Suborder: Strepsirhini
-    Infraorder: Lorisiformes
-        Superfamily Lorisoidea
-            Family: Lorisidae
-            Family: Galagidae
-    Infraorder: Lemuriformes
-        Superfamily Lemuroidea
-            Family: Cheirogaleidae
-            Family: Lepilemuridae
-            Family: Indriidae
-            Family: Lemuridae
-            Family: Daubentoniidae
-Suborder: Haplorhini
-    Infraorder: Tarsiiformes
-        Superfamily Tarsioidea
-            Family: Tarsiidae
-    Infraorder: Simiiformes
-        Parvorder: Platyrrhini
-            Superfamily Ceboidea
-                Family: Cebidae
-                Family: Atelidae
-                Family: Pitheciidae
-        Parvorder: Catarrhini
-            Superfamily: Hominoidea
-                Family: Hylobatidae
-                Family: Hominidae
-            Superfamily: Cercopithecoidea
-                Family: Cercopithecidae</code></pre>
-<pre class="r"><code>Lorisoidea &lt;- c(&quot;Lorisidae&quot;,&quot;Galagidae&quot;)
+<pre class="r"><code>split_quote &lt;- sort(every_fourth, decreasing = TRUE)</code></pre>
+</div>
+<div id="challenge-2" class="section level1">
+<h1>CHALLENGE 2:</h1>
+<pre class="r"><code>m1 &lt;- matrix(
+  data = seq(from = 1, to = 159, by = 2),
+  nrow = 8,
+  ncol = 10
+)
+m1</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+## [1,]    1   17   33   49   65   81   97  113  129   145
+## [2,]    3   19   35   51   67   83   99  115  131   147
+## [3,]    5   21   37   53   69   85  101  117  133   149
+## [4,]    7   23   39   55   71   87  103  119  135   151
+## [5,]    9   25   41   57   73   89  105  121  137   153
+## [6,]   11   27   43   59   75   91  107  123  139   155
+## [7,]   13   29   45   61   77   93  109  125  141   157
+## [8,]   15   31   47   63   79   95  111  127  143   159</code></pre>
+<pre class="r"><code>m1[5,2]</code></pre>
+<pre><code>## [1] 25</code></pre>
+<pre class="r"><code>m1[5:7, ]</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+## [1,]    9   25   41   57   73   89  105  121  137   153
+## [2,]   11   27   43   59   75   91  107  123  139   155
+## [3,]   13   29   45   61   77   93  109  125  141   157</code></pre>
+<pre class="r"><code>m3 &lt;- m1[3:6,4:9]
+m3</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6]
+## [1,]   53   69   85  101  117  133
+## [2,]   55   71   87  103  119  135
+## [3,]   57   73   89  105  121  137
+## [4,]   59   75   91  107  123  139</code></pre>
+<pre class="r"><code>class(m3)</code></pre>
+<pre><code>## [1] &quot;matrix&quot;</code></pre>
+<pre class="r"><code>mode(m3)</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<p>CHALLENGE 3:</p>
+<pre class="r"><code>a &lt;- array(data = 400:1, dim = c(5, 5, 4, 4))
+a</code></pre>
+<pre><code>## , , 1, 1
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  400  395  390  385  380
+## [2,]  399  394  389  384  379
+## [3,]  398  393  388  383  378
+## [4,]  397  392  387  382  377
+## [5,]  396  391  386  381  376
+## 
+## , , 2, 1
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  375  370  365  360  355
+## [2,]  374  369  364  359  354
+## [3,]  373  368  363  358  353
+## [4,]  372  367  362  357  352
+## [5,]  371  366  361  356  351
+## 
+## , , 3, 1
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  350  345  340  335  330
+## [2,]  349  344  339  334  329
+## [3,]  348  343  338  333  328
+## [4,]  347  342  337  332  327
+## [5,]  346  341  336  331  326
+## 
+## , , 4, 1
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  325  320  315  310  305
+## [2,]  324  319  314  309  304
+## [3,]  323  318  313  308  303
+## [4,]  322  317  312  307  302
+## [5,]  321  316  311  306  301
+## 
+## , , 1, 2
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  300  295  290  285  280
+## [2,]  299  294  289  284  279
+## [3,]  298  293  288  283  278
+## [4,]  297  292  287  282  277
+## [5,]  296  291  286  281  276
+## 
+## , , 2, 2
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  275  270  265  260  255
+## [2,]  274  269  264  259  254
+## [3,]  273  268  263  258  253
+## [4,]  272  267  262  257  252
+## [5,]  271  266  261  256  251
+## 
+## , , 3, 2
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  250  245  240  235  230
+## [2,]  249  244  239  234  229
+## [3,]  248  243  238  233  228
+## [4,]  247  242  237  232  227
+## [5,]  246  241  236  231  226
+## 
+## , , 4, 2
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  225  220  215  210  205
+## [2,]  224  219  214  209  204
+## [3,]  223  218  213  208  203
+## [4,]  222  217  212  207  202
+## [5,]  221  216  211  206  201
+## 
+## , , 1, 3
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  200  195  190  185  180
+## [2,]  199  194  189  184  179
+## [3,]  198  193  188  183  178
+## [4,]  197  192  187  182  177
+## [5,]  196  191  186  181  176
+## 
+## , , 2, 3
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  175  170  165  160  155
+## [2,]  174  169  164  159  154
+## [3,]  173  168  163  158  153
+## [4,]  172  167  162  157  152
+## [5,]  171  166  161  156  151
+## 
+## , , 3, 3
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  150  145  140  135  130
+## [2,]  149  144  139  134  129
+## [3,]  148  143  138  133  128
+## [4,]  147  142  137  132  127
+## [5,]  146  141  136  131  126
+## 
+## , , 4, 3
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  125  120  115  110  105
+## [2,]  124  119  114  109  104
+## [3,]  123  118  113  108  103
+## [4,]  122  117  112  107  102
+## [5,]  121  116  111  106  101
+## 
+## , , 1, 4
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  100   95   90   85   80
+## [2,]   99   94   89   84   79
+## [3,]   98   93   88   83   78
+## [4,]   97   92   87   82   77
+## [5,]   96   91   86   81   76
+## 
+## , , 2, 4
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]   75   70   65   60   55
+## [2,]   74   69   64   59   54
+## [3,]   73   68   63   58   53
+## [4,]   72   67   62   57   52
+## [5,]   71   66   61   56   51
+## 
+## , , 3, 4
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]   50   45   40   35   30
+## [2,]   49   44   39   34   29
+## [3,]   48   43   38   33   28
+## [4,]   47   42   37   32   27
+## [5,]   46   41   36   31   26
+## 
+## , , 4, 4
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]   25   20   15   10    5
+## [2,]   24   19   14    9    4
+## [3,]   23   18   13    8    3
+## [4,]   22   17   12    7    2
+## [5,]   21   16   11    6    1</code></pre>
+<pre class="r"><code>a[1, 1, 1, 2]</code></pre>
+<pre><code>## [1] 300</code></pre>
+<pre class="r"><code>a[2, 3, 2, ]</code></pre>
+<pre><code>## [1] 364 264 164  64</code></pre>
+<pre class="r"><code>a[1:5, 1:5, 3, 3]</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  150  145  140  135  130
+## [2,]  149  144  139  134  129
+## [3,]  148  143  138  133  128
+## [4,]  147  142  137  132  127
+## [5,]  146  141  136  131  126</code></pre>
+<p>CHALLENGE 4:</p>
+<pre class="r"><code>#superfamily
+Lorisoidea &lt;- c(&quot;Lorisidae&quot;,&quot;Galagidae&quot;)
+Lemuroidea &lt;- c(&quot;Cheirogaleidae&quot;, &quot;Lepilemuridae&quot;, &quot;Indriidae&quot;, &quot;Lemuridae&quot;, &quot;Daubentoniidae&quot;)
+Tarsioidea &lt;- c(&quot;Tarsiidae&quot;)
+Ceboidea &lt;- c(&quot;Cebidae&quot;, &quot;Atelidae&quot;, &quot;Pitheciidae&quot;)
+Hominoidea &lt;- c(&quot;Hylobatidae&quot;, &quot;Hominidae&quot;)
+Cercopithecoidea &lt;- c(&quot;Cercopithecidae&quot;)
 
-Lemuroidea &lt;- c(&quot;Cheirogaleidae&quot;, &quot;Lepilemuridae&quot;)
+#parvorder
+Platyrrhinni &lt;- list(&quot;Superfamily: Ceboidea&quot; = Ceboidea)
+Catarrhini &lt;- list(&quot;Superfamily: Hominoidea&quot; = Hominoidea, &quot;Superfamily: Cercopithecoidea&quot; = Cercopithecoidea)
 
-Lorisiformes &lt;- list(&quot;Superfamily Lorisoidea&quot; = Lorisoidea)
-Lemuriformes &lt;- list(&quot;Superfamily Lemuroidea&quot; = Lemuroidea)
-Strepsirhini &lt;- list(&quot;Infraorder Lorisiformes&quot;=Lorisiformes,&quot;Infraorder Lemuriformes&quot;=Lemuriformes)</code></pre>
+
+#infraorder
+Lorisiformes &lt;- list(&quot;Superfamily: Lorisoidea&quot; = Lorisoidea)
+Lemuriformes &lt;- list(&quot;Superfamily: Lemuroidea&quot; = Lemuroidea)
+Tarsiiformes &lt;- list(&quot;Superfamily: Tarsioidea&quot; = Tarsioidea)
+Simiiformes &lt;- list(&quot;Parvorder: Platyrrhinni&quot; = Platyrrhinni, &quot;Parvorder: Catarrhini&quot; = Catarrhini)
+
+#suborder
+Strepsirhini &lt;- list(&quot;Infraorder: Lorisiformes&quot; = Lorisiformes, &quot;Infraorder: Lemuriformes&quot; = Lemuriformes)
+Haplorhini &lt;- list(&quot;Infraorder: Tarsiiformes&quot; = Tarsiiformes, &quot;Infraorder: Simiiformes&quot; = Simiiformes)
+
+#Order
+Primates &lt;- list(&quot;Suborder: Strepsirhini&quot; = Strepsirhini, &quot;Suborder: Haplorhini&quot; = Haplorhini)
+
+Primates_taxonomy &lt;- list(&quot;Order: Primates&quot; = Primates)
+Primates_taxonomy</code></pre>
+<pre><code>## $`Order: Primates`
+## $`Order: Primates`$`Suborder: Strepsirhini`
+## $`Order: Primates`$`Suborder: Strepsirhini`$`Infraorder: Lorisiformes`
+## $`Order: Primates`$`Suborder: Strepsirhini`$`Infraorder: Lorisiformes`$`Superfamily: Lorisoidea`
+## [1] &quot;Lorisidae&quot; &quot;Galagidae&quot;
+## 
+## 
+## $`Order: Primates`$`Suborder: Strepsirhini`$`Infraorder: Lemuriformes`
+## $`Order: Primates`$`Suborder: Strepsirhini`$`Infraorder: Lemuriformes`$`Superfamily: Lemuroidea`
+## [1] &quot;Cheirogaleidae&quot; &quot;Lepilemuridae&quot;  &quot;Indriidae&quot;      &quot;Lemuridae&quot;     
+## [5] &quot;Daubentoniidae&quot;
+## 
+## 
+## 
+## $`Order: Primates`$`Suborder: Haplorhini`
+## $`Order: Primates`$`Suborder: Haplorhini`$`Infraorder: Tarsiiformes`
+## $`Order: Primates`$`Suborder: Haplorhini`$`Infraorder: Tarsiiformes`$`Superfamily: Tarsioidea`
+## [1] &quot;Tarsiidae&quot;
+## 
+## 
+## $`Order: Primates`$`Suborder: Haplorhini`$`Infraorder: Simiiformes`
+## $`Order: Primates`$`Suborder: Haplorhini`$`Infraorder: Simiiformes`$`Parvorder: Platyrrhinni`
+## $`Order: Primates`$`Suborder: Haplorhini`$`Infraorder: Simiiformes`$`Parvorder: Platyrrhinni`$`Superfamily: Ceboidea`
+## [1] &quot;Cebidae&quot;     &quot;Atelidae&quot;    &quot;Pitheciidae&quot;
+## 
+## 
+## $`Order: Primates`$`Suborder: Haplorhini`$`Infraorder: Simiiformes`$`Parvorder: Catarrhini`
+## $`Order: Primates`$`Suborder: Haplorhini`$`Infraorder: Simiiformes`$`Parvorder: Catarrhini`$`Superfamily: Hominoidea`
+## [1] &quot;Hylobatidae&quot; &quot;Hominidae&quot;  
+## 
+## $`Order: Primates`$`Suborder: Haplorhini`$`Infraorder: Simiiformes`$`Parvorder: Catarrhini`$`Superfamily: Cercopithecoidea`
+## [1] &quot;Cercopithecidae&quot;</code></pre>
 </div>
 
 
