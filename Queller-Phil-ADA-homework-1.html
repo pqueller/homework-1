@@ -219,9 +219,42 @@ every_fourth</code></pre>
 <pre><code>##  [1] &quot;that&quot;      &quot;so&quot;        &quot;powers&quot;    &quot;or&quot;        &quot;life&quot;      &quot;law&quot;      
 ##  [7] &quot;into&quot;      &quot;in&quot;        &quot;has&quot;       &quot;evolved&quot;   &quot;endless&quot;   &quot;breathed&quot; 
 ## [13] &quot;been&quot;      &quot;and&quot;       &quot;according&quot;</code></pre>
-</div>
-<div id="challenge-2" class="section level1">
-<h1>challenge 2</h1>
+<p>Order: Primates</p>
+<pre><code>Suborder: Strepsirhini
+    Infraorder: Lorisiformes
+        Superfamily Lorisoidea
+            Family: Lorisidae
+            Family: Galagidae
+    Infraorder: Lemuriformes
+        Superfamily Lemuroidea
+            Family: Cheirogaleidae
+            Family: Lepilemuridae
+            Family: Indriidae
+            Family: Lemuridae
+            Family: Daubentoniidae
+Suborder: Haplorhini
+    Infraorder: Tarsiiformes
+        Superfamily Tarsioidea
+            Family: Tarsiidae
+    Infraorder: Simiiformes
+        Parvorder: Platyrrhini
+            Superfamily Ceboidea
+                Family: Cebidae
+                Family: Atelidae
+                Family: Pitheciidae
+        Parvorder: Catarrhini
+            Superfamily: Hominoidea
+                Family: Hylobatidae
+                Family: Hominidae
+            Superfamily: Cercopithecoidea
+                Family: Cercopithecidae</code></pre>
+<pre class="r"><code>Lorisoidea &lt;- c(&quot;Lorisidae&quot;,&quot;Galagidae&quot;)
+
+Lemuroidea &lt;- c(&quot;Cheirogaleidae&quot;, &quot;Lepilemuridae&quot;)
+
+Lorisiformes &lt;- list(&quot;Superfamily Lorisoidea&quot; = Lorisoidea)
+Lemuriformes &lt;- list(&quot;Superfamily Lemuroidea&quot; = Lemuroidea)
+Strepsirhini &lt;- list(&quot;Infraorder Lorisiformes&quot;=Lorisiformes,&quot;Infraorder Lemuriformes&quot;=Lemuriformes)</code></pre>
 </div>
 
 

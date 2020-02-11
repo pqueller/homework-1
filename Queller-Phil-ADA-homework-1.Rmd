@@ -20,18 +20,127 @@ quote <- gsub("[[:punct:]]","","There is grandeur in this view of life, with its
 
 quote
 
+
+
+
+
 split_quote <- str_split(quote, " ")[[1]]
 split_quote
 
 every_fourth <- split_quote[seq(from = 4, to = 60, by = 4)]
 every_fourth
 
-every_fourth <- sort(every_fourth, decreasing = TRUE)
-every_fourth
+split_quote <- sort(every_fourth, decreasing = TRUE)
+
 
 
 ```
-# challenge 2
+###CHALLENGE 2:
+
+    Create a 8 row by 10 column matrix, named m1, consisting of odd integers from 1 to 159. Fill your matrix column-wise.
+
+    Using single bracket notation, extract and print the element in row 5, column 2.
+
+    Using single bracket notation, extract and print the contents of rows 5 to 7 of the matrix.
+
+    Using single bracket notation, extract the contents of (row 3, column 4) to (row 6, column 9) as a new variable, m2. What is the class of this variable? What is the mode of this variable?
+
 ```{r}
 
+m1 <- matrix(
+  data = seq(from = 1, to = 159, by = 2),
+  nrow = 8,
+  ncol = 10
+)
+m1
+
+m1[5,2]
+m1[5:7, ]
+
+m3 <- m1[3:6,4:9]
+class(m3)
+mode(m3)
+
+
+```
+
+CHALLENGE 3:
+
+    Construct a 4-dimensional, 400-element array (5 x 5 x 4 x 4), named a, consisting of the numbers 400 to 1 (i.e., a descending series)
+
+    Given this matrix, what would the following return?
+        a[1, 1, 1, 2]
+        a[2, 3, 2, ]
+        a[1:5, 1:5, 3, 3]
+
+```{r}
+a <- array(data = 400:1, dim = c(5, 5, 4, 4))
+a
+
+a[1, 1, 1, 2]
+a[2, 3, 2, ]
+        a[1:5, 1:5, 3, 3]
+
+```
+
+Order: Primates
+
+    Suborder: Strepsirhini
+        Infraorder: Lorisiformes
+            Superfamily Lorisoidea
+                Family: Lorisidae
+                Family: Galagidae
+        Infraorder: Lemuriformes
+            Superfamily Lemuroidea
+                Family: Cheirogaleidae
+                Family: Lepilemuridae
+                Family: Indriidae
+                Family: Lemuridae
+                Family: Daubentoniidae
+    Suborder: Haplorhini
+        Infraorder: Tarsiiformes
+            Superfamily Tarsioidea
+                Family: Tarsiidae
+        Infraorder: Simiiformes
+            Parvorder: Platyrrhini
+                Superfamily Ceboidea
+                    Family: Cebidae
+                    Family: Atelidae
+                    Family: Pitheciidae
+            Parvorder: Catarrhini
+                Superfamily: Hominoidea
+                    Family: Hylobatidae
+                    Family: Hominidae
+                Superfamily: Cercopithecoidea
+                    Family: Cercopithecidae
+```{r}
+#superfamily
+Lorisoidea <- c("Lorisidae","Galagidae")
+Lemuroidea <- c("Cheirogaleidae", "Lepilemuridae", "Indriidae", "Lemuridae", "Daubentoniidae")
+Tarsioidea <- c("Tarsiidae")
+Ceboidea <- c("Cebidae", "Atelidae", "Pitheciidae")
+Hominoidea <- c("Hylobatidae", "Hominidae")
+Cercopithecoidea <- c("Cercopithecidae")
+
+#parvorder
+Platyrrhinni <- list("Superfamily Ceboidea" = Ceboidea)
+Catarrhini <- list("Superfamily Hominoidea" = Hominoidea, "Superfamily Cercopithecoidea" = Cercopithecoidea)
+
+
+#infraorder
+Lorisiformes <- list("Superfamily Lorisoidea" = Lorisoidea)
+Lemuriformes <- list("Superfamily Lemuroidea" = Lemuroidea)
+Tarsiiformes <- list("Superfamily Tarsioidea" = Tarsioidea)
+Simiiformes <- list("Superfamily Simiiformes" = Ceboidea)
+
+#suborder
+Strepsirhini <- list("Infraorder Lorisiformes" = Lorisiformes, "Infraorder Lemuriformes" = Lemuriformes)
+Haplorhini <- list("Infraorder Tarsiiformes" = Tarsiiformes, "Infraorder Simiiformes" = Simiiformes)
+
+#Order
+Primates <- list("Suborder Strepsirhini" = Strepsirhini, "Suborder Haplorhini" = Haplorhini)
+
+Primates_taxonomy <- list("Order Primates" = Primates)
+Primates_taxonomy
+               
 ```
