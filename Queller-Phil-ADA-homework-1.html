@@ -469,6 +469,15 @@ Primates_taxonomy</code></pre>
 ## 
 ## $`Order: Primates`$`Suborder: Haplorhini`$`Infraorder: Simiiformes`$`Parvorder: Catarrhini`$`Superfamily: Cercopithecoidea`
 ## [1] &quot;Cercopithecidae&quot;</code></pre>
+<pre class="r"><code>nwm &lt;- Primates_taxonomy[[&quot;Order: Primates&quot;]][[&quot;Suborder: Haplorhini&quot;]][[&quot;Infraorder: Simiiformes&quot;]][[&quot;Parvorder: Platyrrhinni&quot;]][[&quot;Superfamily: Ceboidea&quot;]]
+nwm</code></pre>
+<pre><code>## [1] &quot;Cebidae&quot;     &quot;Atelidae&quot;    &quot;Pitheciidae&quot;</code></pre>
+<pre class="r"><code>class(nwm)</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<pre class="r"><code>mode(nwm)</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<pre class="r"><code>Primates_taxonomy$`Order: Primates`$`Suborder: Haplorhini`$`Infraorder: Tarsiiformes`$`Superfamily: Tarsioidea`</code></pre>
+<pre><code>## [1] &quot;Tarsiidae&quot;</code></pre>
 </div>
 
 

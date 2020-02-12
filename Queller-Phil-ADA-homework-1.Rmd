@@ -3,8 +3,8 @@ title: "Queller-Phil-ADA-homework-1"
 author: "Phil Queller"
 date: "2/4/2020"
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -103,5 +103,13 @@ Primates <- list("Suborder: Strepsirhini" = Strepsirhini, "Suborder: Haplorhini"
 
 Primates_taxonomy <- list("Order: Primates" = Primates)
 Primates_taxonomy
-               
+
+nwm <- Primates_taxonomy[["Order: Primates"]][["Suborder: Haplorhini"]][["Infraorder: Simiiformes"]][["Parvorder: Platyrrhinni"]][["Superfamily: Ceboidea"]]
+nwm
+
+class(nwm)
+mode(nwm)
+
+Primates_taxonomy$`Order: Primates`$`Suborder: Haplorhini`$`Infraorder: Tarsiiformes`$`Superfamily: Tarsioidea`
+
 ```
